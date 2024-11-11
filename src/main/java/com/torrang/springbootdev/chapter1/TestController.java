@@ -1,4 +1,4 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

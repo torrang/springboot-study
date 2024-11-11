@@ -1,4 +1,4 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

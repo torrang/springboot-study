@@ -1,6 +1,7 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.torrang.springbootdev.Code;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

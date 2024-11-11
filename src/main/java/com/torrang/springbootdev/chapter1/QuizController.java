@@ -1,6 +1,5 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

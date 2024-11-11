@@ -1,4 +1,4 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

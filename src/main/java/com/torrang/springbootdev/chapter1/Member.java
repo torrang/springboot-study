@@ -1,4 +1,4 @@
-package com.torrang.springbootdev;
+package com.torrang.springbootdev.chapter1;
 
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
