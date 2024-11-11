@@ -1,5 +1,6 @@
 package com.torrang.springbootdev;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -14,6 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class MemberRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
+
+    @AfterEach
+    void cleanUp() {
+        memberRepository.deleteAll();
+    }
 
     @Sql("/insert.sql")
     @Test
@@ -61,8 +67,8 @@ class MemberRepositoryTest {
     void saveMembers() {
         // given
         List<Member> members = List.of(
-            new Member(1L, "A"),
-            new Member(2L, "B")
+            new Member(10L, "Peter"),
+            new Member(20L, "James")
         );
 
         // when
@@ -90,5 +96,18 @@ class MemberRepositoryTest {
 
         // then
         assertThat(memberRepository.findAll().size()).isEqualTo(0);
+    }
+
+    @Test
+    @Sql("/insert.sql")
+    void update() {
+        // given
+        Member member = memberRepository.findById(1L).get();
+
+        // when
+        member.changeName("David");
+
+        // then
+        assertThat(memberRepository.findById(1L).get().getName()).isEqualTo("David");
     }
 }

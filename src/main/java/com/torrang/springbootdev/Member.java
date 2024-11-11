@@ -1,6 +1,7 @@
 package com.torrang.springbootdev;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,4 +19,9 @@ public class Member {
 
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Transactional
+    public void changeName(String name) {
+        this.name = name;
+    }
 }
