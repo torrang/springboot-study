@@ -3,8 +3,10 @@ package com.torrang.springbootdev.controller;
 import com.torrang.springbootdev.domain.Article;
 import com.torrang.springbootdev.dto.AddArticleRequest;
 import com.torrang.springbootdev.dto.ArticleResponse;
+import com.torrang.springbootdev.dto.UpdateArticleRequest;
 import com.torrang.springbootdev.service.BlogService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -39,5 +41,19 @@ public class BlogApiController {
         Article article = blogService.findById(id);
 
         return ResponseEntity.ok().body(new ArticleResponse(article));
+    }
+
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Void> deleteArticle(@PathVariable long id) {
+        blogService.deleteById(id);
+
+        return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/api/articles/{id}")
+    public ResponseEntity<Article> updateArticle(@PathVariable long id, @RequestBody UpdateArticleRequest request) {
+        Article updatedArticle = blogService.update(id, request);
+
+        return ResponseEntity.ok().body(updatedArticle);
     }
 }
